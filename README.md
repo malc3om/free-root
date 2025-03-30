@@ -14,22 +14,33 @@ This project provides a Python-based solution to gain root access in restricted 
 
 ## Usage
 
-### One-line execution:
+### One-line direct execution (RECOMMENDED FOR JUPYTER):
 
 ```python
-!pip install requests && python -c "import requests; exec(requests.get('https://raw.githubusercontent.com/malc3om/free-root/main/freeroot.py').text)"
+# This method works best for Jupyter notebooks with permission restrictions
+!python -c "import urllib.request; exec(urllib.request.urlopen('https://raw.githubusercontent.com/malc3om/free-root/main/direct_runner.py').read().decode())"
 ```
 
-### Alternative method:
+### Alternative methods:
 
 ```python
-# Step 1: Clone the repository
-!git clone https://github.com/malc3om/free-root.git
+# Using requests (if available)
+!pip install requests && python -c "import requests; exec(requests.get('https://raw.githubusercontent.com/malc3om/free-root/main/freeroot.py').text)"
 
-# Step 2: Run the Python script
+# Clone and run (not recommended if you have permission issues)
+!git clone https://github.com/malc3om/free-root.git
 %cd free-root
 !python freeroot.py
 ```
+
+## Troubleshooting
+
+If you encounter errors like:
+- "No such file or directory" when using cd
+- "python: command not found"
+- Permission errors
+
+Use the direct one-line method which creates temporary directories and handles python path issues.
 
 ## Supported Architectures
 
