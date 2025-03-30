@@ -9,21 +9,24 @@ This project provides a Python-based solution to gain root access in restricted 
 - Single command installation and execution
 - Works in Jupyter Notebooks and other Python environments
 - Automatic handling of prompts (no need for manual interaction)
-- Compatible with pip-based environments
+- Compatible with even highly restricted environments
 - Supports x86_64 (amd64) and aarch64 (arm64) architectures
 
 ## Usage
 
-### One-line direct execution (RECOMMENDED FOR JUPYTER):
+### One-line execution with NO DEPENDENCIES (RECOMMENDED):
 
 ```python
-# This method works best for Jupyter notebooks with permission restrictions
-!python -c "import urllib.request; exec(urllib.request.urlopen('https://raw.githubusercontent.com/malc3om/free-root/main/direct_runner.py').read().decode())"
+# This method uses only Python standard library - NO REQUESTS MODULE NEEDED
+!python -c "import urllib.request; exec(urllib.request.urlopen('https://raw.githubusercontent.com/malc3om/free-root/main/stdlib_runner.py').read().decode())"
 ```
 
 ### Alternative methods:
 
 ```python
+# Using urllib (if requests is not available)
+!python -c "import urllib.request; exec(urllib.request.urlopen('https://raw.githubusercontent.com/malc3om/free-root/main/direct_runner.py').read().decode())"
+
 # Using requests (if available)
 !pip install requests && python -c "import requests; exec(requests.get('https://raw.githubusercontent.com/malc3om/free-root/main/freeroot.py').text)"
 
@@ -36,11 +39,12 @@ This project provides a Python-based solution to gain root access in restricted 
 ## Troubleshooting
 
 If you encounter errors like:
+- "ModuleNotFoundError: No module named 'requests'"
 - "No such file or directory" when using cd
 - "python: command not found"
 - Permission errors
 
-Use the direct one-line method which creates temporary directories and handles python path issues.
+Use the first "NO DEPENDENCIES" method above which uses only Python standard library modules.
 
 ## Supported Architectures
 
